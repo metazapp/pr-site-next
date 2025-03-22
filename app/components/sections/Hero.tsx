@@ -24,7 +24,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-90 z-0"></div>
       
@@ -40,10 +40,10 @@ export default function Hero() {
         />
       </div>
       
-      {/* Content container */}
+      {/* Content container - Added pt-20 for mobile and pt-28 for larger screens to prevent navbar overlap */}
       <div 
         ref={heroRef}
-        className="container mx-auto px-4 md:px-6 relative z-10 pt-20"
+        className="container mx-auto px-4 md:px-6 relative z-10 pt-20 md:pt-28"
       >
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
