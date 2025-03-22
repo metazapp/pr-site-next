@@ -115,7 +115,7 @@ export default function Services() {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="p-1">
-                <div className={`bg-gradient-to-r ${service.color} p-3 sm:p-4 md:p-6 rounded-t-lg flex justify-center`}>
+              <div className={`bg-gradient-to-r ${service.color} p-3 sm:p-4 md:p-6 rounded-t-xl flex justify-center`}>
                   <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 relative">
                     <Image
                       src={service.icon}

@@ -1,8 +1,8 @@
-1:HL["/_next/static/css/1735d928c7eecdd2.css","style"]
-0:["qjd-gdeNb1jE6LZgUbc1g",[[["",{"children":["blog",{"children":[["slug","advancements-in-automotive-plastics","d"],{"children":["__PAGE__?{\"slug\":\"advancements-in-automotive-plastics\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/1735d928c7eecdd2.css","precedence":"next"}]],"$L3"]]]]
-4:I{"id":9903,"chunks":["964:static/chunks/964-a1c4a116a63de71e.js","724:static/chunks/724-95acb67abd7ef7c0.js","185:static/chunks/app/layout-9e44de5152cec925.js"],"name":"","async":false}
-5:I{"id":1443,"chunks":["272:static/chunks/webpack-3af1a0813dde47a5.js","971:static/chunks/fd9d1056-913d5673d6704c19.js","864:static/chunks/864-9d853e68a4f8ac09.js"],"name":"","async":false}
-6:I{"id":8639,"chunks":["272:static/chunks/webpack-3af1a0813dde47a5.js","971:static/chunks/fd9d1056-913d5673d6704c19.js","864:static/chunks/864-9d853e68a4f8ac09.js"],"name":"","async":false}
+1:HL["/_next/static/css/d7b0efd246b6338d.css","style"]
+0:["OnQfKUOplX9fvTwHG108R",[[["",{"children":["blog",{"children":[["slug","advancements-in-automotive-plastics","d"],{"children":["__PAGE__?{\"slug\":\"advancements-in-automotive-plastics\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d7b0efd246b6338d.css","precedence":"next"}]],"$L3"]]]]
+4:I{"id":9903,"chunks":["964:static/chunks/964-a1c4a116a63de71e.js","724:static/chunks/724-95acb67abd7ef7c0.js","185:static/chunks/app/layout-b607ded6cf9042c0.js"],"name":"","async":false}
+5:I{"id":1443,"chunks":["272:static/chunks/webpack-00229904a7f8af2e.js","971:static/chunks/fd9d1056-913d5673d6704c19.js","864:static/chunks/864-9d853e68a4f8ac09.js"],"name":"","async":false}
+6:I{"id":8639,"chunks":["272:static/chunks/webpack-00229904a7f8af2e.js","971:static/chunks/fd9d1056-913d5673d6704c19.js","864:static/chunks/864-9d853e68a4f8ac09.js"],"name":"","async":false}
 8:I{"id":6964,"chunks":["964:static/chunks/964-a1c4a116a63de71e.js","724:static/chunks/724-95acb67abd7ef7c0.js","308:static/chunks/app/blog/[slug]/page-ac0e1f8a91b61624.js"],"name":"Image","async":false}
 a:I{"id":4724,"chunks":["964:static/chunks/964-a1c4a116a63de71e.js","724:static/chunks/724-95acb67abd7ef7c0.js","308:static/chunks/app/blog/[slug]/page-ac0e1f8a91b61624.js"],"name":"","async":false}
 9:T1503,
