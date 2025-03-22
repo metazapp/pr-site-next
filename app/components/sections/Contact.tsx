@@ -24,40 +24,86 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setFormStatus('submitting')
+// app/components/sections/Contact.tsx (update the handleSubmit function)
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setFormStatus('submitting');
+  
+  try {
+    const response = await fetch('https://pr-site-worker.anandncs.workers.dev/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
     
-    try {
-      // In a real implementation, you would send the form data to your API
-      // await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData),
-      // })
+    // Get the response data
+    const responseData = await response.json();
+    
+    // Create an error message element in the DOM to display the full error
+    if (!responseData.success) {
+      // Log to console
+      console.error('Form submission error:', responseData);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Create a hidden div to hold the error for you to copy
+      const errorDiv = document.createElement('div');
+      errorDiv.style.position = 'fixed';
+      errorDiv.style.bottom = '10px';
+      errorDiv.style.right = '10px';
+      errorDiv.style.backgroundColor = 'white';
+      errorDiv.style.border = '1px solid red';
+      errorDiv.style.padding = '10px';
+      errorDiv.style.maxWidth = '80%';
+      errorDiv.style.maxHeight = '200px';
+      errorDiv.style.overflow = 'auto';
+      errorDiv.style.zIndex = '9999';
+      errorDiv.style.fontSize = '12px';
+      errorDiv.style.fontFamily = 'monospace';
       
-      setFormStatus('success')
+      // Add error content
+      errorDiv.innerHTML = `
+        <h3>Error Details (for debugging):</h3>
+        <pre>${JSON.stringify(responseData, null, 2)}</pre>
+        <button id="copy-error">Copy Error</button>
+        <button id="close-error">Close</button>
+      `;
+      
+      // Add to DOM
+      document.body.appendChild(errorDiv);
+      
+      // Add copy functionality
+      document.getElementById('copy-error')?.addEventListener('click', () => {
+        navigator.clipboard.writeText(JSON.stringify(responseData, null, 2))
+          .then(() => alert('Error copied to clipboard'))
+          .catch(err => console.error('Could not copy text: ', err));
+      });
+      
+      // Add close functionality
+      document.getElementById('close-error')?.addEventListener('click', () => {
+        document.body.removeChild(errorDiv);
+      });
+      
+      setFormStatus('error');
+    } else {
+      setFormStatus('success');
       setFormData({
         name: '',
         email: '',
         phone: '',
         company: '',
         message: '',
-      })
-      
-      // Reset form status after 5 seconds
-      setTimeout(() => setFormStatus('idle'), 5000)
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      setFormStatus('error')
-      
-      // Reset form status after 5 seconds
-      setTimeout(() => setFormStatus('idle'), 5000)
+      });
     }
+    
+    // Reset form status after 5 seconds
+    setTimeout(() => setFormStatus('idle'), 5000);
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    setFormStatus('error');
+    
+    // Reset form status after 5 seconds
+    setTimeout(() => setFormStatus('idle'), 5000);
   }
+};
 
   const contactCards = [
     {
