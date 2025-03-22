@@ -29,6 +29,8 @@ export default function Navbar() {
     }
 
     window.addEventListener('scroll', handleScroll)
+    // Initialize scroll state when component mounts
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -59,27 +61,27 @@ export default function Navbar() {
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-sm shadow-md py-2'
+        scrolled || isMenuOpen
+          ? 'bg-white shadow-md py-2'
           : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative z-10">
-            <div className="flex items-center">
-              <Image
-                src="/images/logo.svg"
-                alt="PR Plastics Logo"
-                width={40}
-                height={40}
-                className="mr-2"
-              />
-              <span className={`font-bold text-xl ${scrolled ? 'text-gray-800' : 'text-white'}`}>
-                PR Plastics
-              </span>
-            </div>
+          <Link href="/" className="relative z-10 flex items-center">
+            <Image
+              src="/images/logo.svg"
+              alt="PR Plastics Logo"
+              width={40}
+              height={40}
+              className="mr-2"
+            />
+            <span className={`font-bold text-xl ${
+              scrolled || isMenuOpen ? 'text-gray-800' : 'text-white'
+            }`}>
+              PR Plastics
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -122,17 +124,17 @@ export default function Navbar() {
             <div className="w-6 flex flex-col items-end space-y-1.5">
               <span
                 className={`block h-0.5 rounded-full transition-all duration-300 ${
-                  scrolled ? 'bg-gray-800' : 'bg-white'
+                  scrolled || isMenuOpen ? 'bg-gray-800' : 'bg-white'
                 } ${isMenuOpen ? 'w-6 transform rotate-45 translate-y-2' : 'w-6'}`}
               ></span>
               <span
                 className={`block h-0.5 rounded-full transition-all duration-300 ${
-                  scrolled ? 'bg-gray-800' : 'bg-white'
+                  scrolled || isMenuOpen ? 'bg-gray-800' : 'bg-white'
                 } ${isMenuOpen ? 'opacity-0' : 'w-4'}`}
               ></span>
               <span
                 className={`block h-0.5 rounded-full transition-all duration-300 ${
-                  scrolled ? 'bg-gray-800' : 'bg-white'
+                  scrolled || isMenuOpen ? 'bg-gray-800' : 'bg-white'
                 } ${isMenuOpen ? 'w-6 transform -rotate-45 -translate-y-2' : 'w-5'}`}
               ></span>
             </div>

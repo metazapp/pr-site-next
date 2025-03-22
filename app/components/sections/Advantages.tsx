@@ -98,25 +98,25 @@ export default function Advantages() {
         </div>
 
         {/* Advantages grid with neumorphic design */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-8 max-w-7xl mx-auto">
           {advantages.map((advantage, index) => (
             <div
               key={index}
               ref={(el) => (advantageRefs.current[index] = el)}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-300"
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-3 sm:p-4 md:p-6 border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-300"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="bg-gradient-to-br from-blue-500/20 to-indigo-500/20 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 shadow-inner">
+              <div className="bg-gradient-to-br from-blue-500/20 to-indigo-500/20 p-2 sm:p-3 md:p-4 rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center mb-3 sm:mb-4 md:mb-6 shadow-inner">
                 <Image
                   src={advantage.icon}
                   alt={advantage.title}
-                  width={32}
-                  height={32}
-                  className="text-white"
+                  width={20}
+                  height={20}
+                  className="sm:w-6 sm:h-6 md:w-8 md:h-8 text-white"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-3">{advantage.title}</h3>
-              <p className="text-blue-100">{advantage.description}</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1 sm:mb-2 md:mb-3">{advantage.title}</h3>
+              <p className="text-xs sm:text-sm text-blue-100 line-clamp-3 md:line-clamp-none">{advantage.description}</p>
             </div>
           ))}
         </div>

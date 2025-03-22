@@ -106,7 +106,7 @@ export default function Services() {
         </div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <div
               key={service.id}
@@ -115,8 +115,8 @@ export default function Services() {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="p-1">
-                <div className={`bg-gradient-to-r ${service.color} p-6 rounded-t-lg flex justify-center`}>
-                  <div className="w-20 h-20 relative">
+                <div className={`bg-gradient-to-r ${service.color} p-3 sm:p-4 md:p-6 rounded-t-lg flex justify-center`}>
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 relative">
                     <Image
                       src={service.icon}
                       alt={service.title}
@@ -127,17 +127,17 @@ export default function Services() {
                 </div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
+              <div className="p-3 sm:p-4 md:p-6">
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1 sm:mb-2 md:mb-3 text-gray-800">{service.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 md:mb-4 line-clamp-3">{service.description}</p>
                 <Link
                   href={`/services#${service.id}`}
-                  className={`inline-flex items-center text-sm font-medium bg-gradient-to-r ${service.color} bg-clip-text text-transparent group-hover:underline`}
+                  className={`inline-flex items-center text-xs sm:text-sm font-medium bg-gradient-to-r ${service.color} bg-clip-text text-transparent group-hover:underline`}
                 >
                   Learn more
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className={`h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1 fill-current bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}
+                    className={`h-3 w-3 sm:h-4 sm:w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1 fill-current bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >

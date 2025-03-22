@@ -21,17 +21,17 @@ export const generateMetadata = async (): Promise<Metadata> => {
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+91-1234567890',
+      telephone: ' +91  99766 16661',
       contactType: 'customer service',
       areaServed: 'IN',
       availableLanguage: ['en', 'hi'],
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '123 Industrial Area',
-      addressLocality: 'Mumbai',
-      addressRegion: 'Maharashtra',
-      postalCode: '400001',
+      streetAddress: ' No. 1/117, Renugadevi Kovil Street',
+      addressLocality: 'Coimbatore',
+      addressRegion: 'Tamilnadu',
+      postalCode: '641047',
       addressCountry: 'IN',
     }
   };

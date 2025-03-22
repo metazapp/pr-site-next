@@ -117,8 +117,8 @@ export default function Footer() {
                   />
                 </svg>
                 <address className="not-italic text-gray-400">
-                  123 Industrial Area, Mumbai, <br />
-                  Maharashtra 400001, India
+                No. 1/117, Renugadevi Kovil Street, Coimbatore, <br />
+                  Tamilnadu - 641047, India
                 </address>
               </li>
               <li className="flex items-center">
@@ -137,7 +137,7 @@ export default function Footer() {
                   />
                 </svg>
                 <a href="tel:+911234567890" className="text-gray-400 hover:text-white transition-colors">
-                  +91 123 456 7890
+                +91  99766 16661
                 </a>
               </li>
               <li className="flex items-center">
@@ -156,7 +156,7 @@ export default function Footer() {
                   />
                 </svg>
                 <a href="mailto:info@prplastics.in" className="text-gray-400 hover:text-white transition-colors">
-                  info@prplastics.in
+                  hello@prplastics.in
                 </a>
               </li>
             </ul>

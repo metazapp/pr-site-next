@@ -110,7 +110,7 @@ export default function BlogPage() {
 
           <Card variant="elevated" className="overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="relative h-64 lg:h-auto">
+              <div className="relative h-48 sm:h-64 lg:h-auto">
                 <Image
                   src={featuredPost.image}
                   alt={featuredPost.title}
@@ -118,40 +118,40 @@ export default function BlogPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-8 lg:p-12">
-                <div className="flex items-center mb-4">
-                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+              <div className="p-4 sm:p-6 lg:p-12">
+                <div className="flex items-center mb-2 sm:mb-4">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded">
                     {featuredPost.category}
                   </span>
                   <span className="mx-2 text-gray-400">•</span>
-                  <span className="text-gray-600 text-sm">{featuredPost.date}</span>
+                  <span className="text-gray-600 text-xs sm:text-sm">{featuredPost.date}</span>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-gray-900">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4 text-gray-900">
                   {featuredPost.title}
                 </h3>
-                <p className="text-gray-600 mb-6 text-lg">
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base line-clamp-3 sm:line-clamp-4">
                   {featuredPost.excerpt}
                 </p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <div className="bg-blue-100 text-blue-800 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                    <div className="bg-blue-100 text-blue-800 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-2 sm:mr-3 text-xs sm:text-sm">
                       {featuredPost.author.split(' ').map(name => name[0]).join('')}
                     </div>
-                    <span className="text-gray-700 font-medium">
+                    <span className="text-gray-700 font-medium text-xs sm:text-sm">
                       {featuredPost.author}
                     </span>
                   </div>
-                  <span className="text-gray-500 text-sm">{featuredPost.readTime}</span>
+                  <span className="text-gray-500 text-xs sm:text-sm">{featuredPost.readTime}</span>
                 </div>
-                <div className="mt-8">
+                <div className="mt-4 sm:mt-8">
                   <Link
                     href={`/blog/${featuredPost.slug}`}
-                    className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 inline-flex items-center"
+                    className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 inline-flex items-center text-xs sm:text-sm"
                   >
                     Read Article
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 ml-2"
+                      className="h-3 w-3 sm:h-5 sm:w-5 ml-1 sm:ml-2"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -177,50 +177,50 @@ export default function BlogPage() {
             <div className="w-20 h-1.5 bg-gradient-to-r from-blue-500 to-teal-500 mb-6 rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-8 max-w-7xl mx-auto">
             {otherPosts.map((post) => (
               <Card key={post.slug} variant="default" className="overflow-hidden h-full" hoverEffect={true}>
-                <div className="relative h-48">
+                <div className="relative h-32 sm:h-40 md:h-48">
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute top-0 left-0 m-4">
-                    <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                  <div className="absolute top-0 left-0 m-2 sm:m-4">
+                    <span className="bg-blue-100 text-blue-800 text-xs font-medium px-1.5 sm:px-2.5 py-0.5 rounded">
                       {post.category}
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="text-gray-600 text-sm">{post.date}</span>
-                    <span className="text-gray-500 text-sm">{post.readTime}</span>
+                <div className="p-3 sm:p-4 md:p-6">
+                  <div className="flex justify-between items-center mb-1 sm:mb-3">
+                    <span className="text-gray-600 text-xs">{post.date}</span>
+                    <span className="text-gray-500 text-xs">{post.readTime}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
+                  <h3 className="text-sm sm:text-base md:text-xl font-bold mb-1 sm:mb-3 text-gray-900 line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-600 mb-2 sm:mb-6 text-xs sm:text-sm line-clamp-2 sm:line-clamp-3">
                     {post.excerpt}
                   </p>
                   <div className="flex items-center justify-between mt-auto">
                     <div className="flex items-center">
-                      <div className="bg-blue-100 text-blue-800 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                      <div className="bg-blue-100 text-blue-800 w-5 h-5 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-1 sm:mr-3 text-xs">
                         {post.author.split(' ').map(name => name[0]).join('')}
                       </div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 text-xs sm:text-sm truncate max-w-[60px] sm:max-w-full">
                         {post.author}
                       </span>
                     </div>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="text-blue-600 hover:text-blue-800 inline-flex items-center font-medium"
+                      className="text-blue-600 hover:text-blue-800 inline-flex items-center font-medium text-xs sm:text-sm"
                     >
                       Read
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-1"
+                        className="h-3 w-3 sm:h-4 sm:w-4 ml-1"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -239,43 +239,43 @@ export default function BlogPage() {
 
           {/* Pagination */}
           <div className="flex justify-center mt-12">
-            <nav className="inline-flex" aria-label="Pagination">
+            <nav className="inline-flex text-xs sm:text-base" aria-label="Pagination">
               <a
                 href="#"
-                className="py-2 px-4 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 text-gray-500"
+                className="py-1 sm:py-2 px-2 sm:px-4 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 text-gray-500"
               >
                 Previous
               </a>
               <a
                 href="#"
-                className="py-2 px-4 bg-blue-600 border border-blue-600 text-white hover:bg-blue-700"
+                className="py-1 sm:py-2 px-2 sm:px-4 bg-blue-600 border border-blue-600 text-white hover:bg-blue-700"
               >
                 1
               </a>
               <a
                 href="#"
-                className="py-2 px-4 bg-white border border-gray-300 text-gray-500 hover:bg-gray-100"
+                className="py-1 sm:py-2 px-2 sm:px-4 bg-white border border-gray-300 text-gray-500 hover:bg-gray-100"
               >
                 2
               </a>
               <a
                 href="#"
-                className="py-2 px-4 bg-white border border-gray-300 text-gray-500 hover:bg-gray-100"
+                className="py-1 sm:py-2 px-2 sm:px-4 bg-white border border-gray-300 text-gray-500 hover:bg-gray-100"
               >
                 3
               </a>
-              <span className="py-2 px-4 bg-white border border-gray-300 text-gray-500">
+              <span className="py-1 sm:py-2 px-2 sm:px-4 bg-white border border-gray-300 text-gray-500">
                 ...
               </span>
               <a
                 href="#"
-                className="py-2 px-4 bg-white border border-gray-300 text-gray-500 hover:bg-gray-100"
+                className="py-1 sm:py-2 px-2 sm:px-4 bg-white border border-gray-300 text-gray-500 hover:bg-gray-100"
               >
                 8
               </a>
               <a
                 href="#"
-                className="py-2 px-4 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 text-gray-500"
+                className="py-1 sm:py-2 px-2 sm:px-4 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 text-gray-500"
               >
                 Next
               </a>
@@ -287,27 +287,27 @@ export default function BlogPage() {
       {/* Newsletter subscription */}
       <section className="py-16 bg-blue-50">
         <Container>
-          <Card variant="neumorphic" className="p-8 md:p-12">
+          <Card variant="neumorphic" className="p-4 sm:p-8 md:p-12">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">Stay Updated</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4 text-gray-900">Stay Updated</h2>
+              <p className="text-sm sm:text-lg text-gray-600 mb-4 sm:mb-8">
                 Subscribe to our newsletter to receive the latest insights and news about the automotive plastic components industry.
               </p>
-              <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+              <form className="flex flex-col sm:flex-row gap-2 sm:gap-4 max-w-xl mx-auto">
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  className="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm"
                   required
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 whitespace-nowrap"
+                  className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 whitespace-nowrap text-sm"
                 >
                   Subscribe
                 </button>
               </form>
-              <p className="text-sm text-gray-500 mt-4">
+              <p className="text-xs text-gray-500 mt-3 sm:mt-4">
                 We respect your privacy. Unsubscribe at any time.
               </p>
             </div>

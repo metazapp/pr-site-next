@@ -63,8 +63,8 @@ export default function Contact() {
     {
       title: 'Sales Inquiries',
       contacts: [
-        { type: 'email', value: 'sales@prplastics.in' },
-        { type: 'phone', value: '+91 9876543210' },
+        { type: 'email', value: 'hello@prplastics.in' },
+        { type: 'phone', value: '+91  99766 16661' },
       ],
       icon: (
         <svg
@@ -86,8 +86,8 @@ export default function Contact() {
     {
       title: 'Technical Support',
       contacts: [
-        { type: 'email', value: 'support@prplastics.in' },
-        { type: 'phone', value: '+91 9876543211' },
+        { type: 'email', value: 'hello@prplastics.in' },
+        { type: 'phone', value: '+91  99766 16661' },
       ],
       icon: (
         <svg
@@ -115,8 +115,8 @@ export default function Contact() {
     {
       title: 'General Inquiries',
       contacts: [
-        { type: 'email', value: 'info@prplastics.in' },
-        { type: 'phone', value: '+91 9876543212' },
+        { type: 'email', value: 'hello@prplastics.in' },
+        { type: 'phone', value: '+91  99766 16661' },
       ],
       icon: (
         <svg
@@ -281,8 +281,8 @@ export default function Contact() {
               }`}>
                 <h4 className="text-xl font-semibold mb-4 text-gray-800">Visit Our Office</h4>
                 <address className="not-italic text-gray-600 mb-3">
-                  123 Industrial Area, Mumbai, <br />
-                  Maharashtra 400001, India
+                  No. 1/117, Renugadevi Kovil Street, Coimbatore, <br />
+                  Tamilnadu 641047, India
                 </address>
                 <div className="mt-2 space-y-2">
                   <div className="flex items-center">
@@ -300,7 +300,7 @@ export default function Contact() {
                         d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                       />
                     </svg>
-                    <a href="tel:+911234567890" className="text-blue-600 hover:text-blue-800 hover:underline">+91 123 456 7890</a>
+                    <a href="tel:+919976616661" className="text-blue-600 hover:text-blue-800 hover:underline"> +91  99766 16661</a>
                   </div>
                   <div className="flex items-center">
                     <svg
@@ -317,7 +317,7 @@ export default function Contact() {
                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                       />
                     </svg>
-                    <a href="mailto:info@prplastics.in" className="text-blue-600 hover:text-blue-800 hover:underline">info@prplastics.in</a>
+                    <a href="mailto:hello@prplastics.in" className="text-blue-600 hover:text-blue-800 hover:underline">hello@prplastics.in</a>
                   </div>
                 </div>
               </div>

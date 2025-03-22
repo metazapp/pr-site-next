@@ -5,6 +5,23 @@ import Container from '../../components/ui/Container'
 import Card from '../../components/ui/Card'
 import Button from '../../components/ui/Button'
 
+// This array should match the blog posts in your main blog page
+const blogSlugs = [
+  'advancements-in-automotive-plastics',
+  'sustainability-in-manufacturing',
+  'impact-of-ev-trends',
+  'quality-control-innovations',
+  'material-science-breakthroughs',
+  'supply-chain-resilience'
+];
+
+// Required for static site generation with dynamic routes
+export async function generateStaticParams() {
+  return blogSlugs.map(slug => ({
+    slug: slug,
+  }));
+}
+
 // In a real implementation, this would fetch data from a CMS or database
 // based on the slug parameter
 const getBlogPost = (slug: string) => {
@@ -78,7 +95,81 @@ const getBlogPost = (slug: string) => {
         'material-science-breakthroughs',
       ]
     },
-    // Additional posts would be defined here
+    'sustainability-in-manufacturing': {
+      title: 'Sustainability in Plastic Component Manufacturing',
+      date: 'March 10, 2025',
+      author: 'Priya Patel',
+      authorRole: 'Sustainability Director',
+      authorImage: '',
+      category: 'Sustainability',
+      image: '/images/blog/sustainability-in-manufacturing.jpg',
+      readTime: '6 min read',
+      content: `<p>This is a placeholder for the sustainability article content.</p>`,
+      relatedPosts: [
+        'advancements-in-automotive-plastics',
+        'material-science-breakthroughs',
+      ]
+    },
+    'impact-of-ev-trends': {
+      title: 'The Impact of Electric Vehicle Trends on Plastic Components',
+      date: 'March 5, 2025',
+      author: 'Vikram Mehta',
+      authorRole: 'Market Research Analyst',
+      authorImage: '',
+      category: 'Industry Trends',
+      image: '/images/blog/impact-of-ev-trends.jpg',
+      readTime: '10 min read',
+      content: `<p>This is a placeholder for the EV trends article content.</p>`,
+      relatedPosts: [
+        'advancements-in-automotive-plastics',
+        'sustainability-in-manufacturing',
+      ]
+    },
+    'material-science-breakthroughs': {
+      title: 'Material Science Breakthroughs for Automotive Applications',
+      date: 'February 20, 2025',
+      author: 'Dr. Rahul Sharma',
+      authorRole: 'Chief Technology Officer',
+      authorImage: '/images/team/rahul-sharma.jpg',
+      category: 'Materials',
+      image: '/images/blog/material-science-breakthroughs.jpg',
+      readTime: '9 min read',
+      content: `<p>This is a placeholder for the material science article content.</p>`,
+      relatedPosts: [
+        'advancements-in-automotive-plastics',
+        'sustainability-in-manufacturing',
+      ]
+    },
+    'quality-control-innovations': {
+      title: 'Innovations in Quality Control for Automotive Components',
+      date: 'February 28, 2025',
+      author: 'Dr. Anjali Desai',
+      authorRole: 'Quality Assurance Manager',
+      authorImage: '',
+      category: 'Quality Assurance',
+      image: '/images/blog/quality-control-innovations.jpg',
+      readTime: '7 min read',
+      content: `<p>This is a placeholder for the quality control article content.</p>`,
+      relatedPosts: [
+        'advancements-in-automotive-plastics',
+        'material-science-breakthroughs',
+      ]
+    },
+    'supply-chain-resilience': {
+      title: 'Building Supply Chain Resilience in Component Manufacturing',
+      date: 'February 15, 2025',
+      author: 'Arjun Singh',
+      authorRole: 'Supply Chain Manager',
+      authorImage: '',
+      category: 'Supply Chain',
+      image: '/images/blog/supply-chain-resilience.jpg',
+      readTime: '8 min read',
+      content: `<p>This is a placeholder for the supply chain article content.</p>`,
+      relatedPosts: [
+        'sustainability-in-manufacturing',
+        'quality-control-innovations',
+      ]
+    }
   };
 
   return posts[slug as keyof typeof posts];
@@ -155,9 +246,36 @@ const getRelatedPosts = (slugs: string[]) => {
       category: 'Materials',
       image: '/images/blog/material-science-breakthroughs.jpg',
     },
+    'quality-control-innovations': {
+      slug: 'quality-control-innovations',
+      title: 'Innovations in Quality Control for Automotive Components',
+      excerpt: 'New technologies and methodologies that are enhancing quality assurance in plastic component manufacturing.',
+      date: 'February 28, 2025',
+      author: 'Dr. Anjali Desai',
+      category: 'Quality Assurance',
+      image: '/images/blog/quality-control-innovations.jpg',
+    },
+    'advancements-in-automotive-plastics': {
+      slug: 'advancements-in-automotive-plastics',
+      title: 'Recent Advancements in Automotive Plastics Technology',
+      excerpt: 'Explore the latest innovations in plastic materials and manufacturing techniques transforming the automotive industry.',
+      date: 'March 15, 2025',
+      author: 'Dr. Rahul Sharma',
+      category: 'Technology',
+      image: '/images/blog/advancements-in-automotive-plastics.jpg',
+    },
+    'supply-chain-resilience': {
+      slug: 'supply-chain-resilience',
+      title: 'Building Supply Chain Resilience in Component Manufacturing',
+      excerpt: 'Strategies for maintaining robust supply chains in the face of global uncertainties and disruptions.',
+      date: 'February 15, 2025',
+      author: 'Arjun Singh',
+      category: 'Supply Chain',
+      image: '/images/blog/supply-chain-resilience.jpg',
+    }
   };
   
-  return slugs.map(slug => allPosts[slug as keyof typeof allPosts]);
+  return slugs.map(slug => allPosts[slug as keyof typeof allPosts]).filter(Boolean);
 };
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
@@ -276,7 +394,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* Article content */}
       <section className="py-12">
         <Container maxWidth="2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 max-w-7xl mx-auto">
             {/* Main content */}
             <div className="lg:col-span-8">
               <Card variant="default" className="p-8 lg:p-12">

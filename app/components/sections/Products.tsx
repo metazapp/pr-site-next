@@ -84,6 +84,9 @@ export default function Products() {
   const filteredProducts = activeCategory === 'all'
     ? products
     : products.filter(product => product.category === activeCategory)
+  
+  // Limit to only 4 products for the homepage display
+  const displayedProducts = filteredProducts.slice(0, 4)
 
   return (
     <section id="products" className="py-20 bg-white">
@@ -105,12 +108,12 @@ export default function Products() {
         </div>
 
         {/* Category filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ${
                 activeCategory === category.id
                   ? 'bg-blue-600 text-white shadow-md'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -122,13 +125,13 @@ export default function Products() {
         </div>
 
         {/* Products grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => (
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-7xl mx-auto">
+          {displayedProducts.map((product) => (
             <div
               key={product.id}
               className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -138,19 +141,19 @@ export default function Products() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+              <div className="p-3 sm:p-4 md:p-6">
+                <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                   {product.name}
                 </h3>
-                <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+                <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-4 line-clamp-2 sm:line-clamp-3">{product.description}</p>
                 <Link
                   href={`/products#${product.id}`}
-                  className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800"
+                  className="inline-flex items-center text-xs sm:text-sm font-medium text-blue-600 hover:text-blue-800"
                 >
                   View Details
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                    className="h-3 w-3 sm:h-4 sm:w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >

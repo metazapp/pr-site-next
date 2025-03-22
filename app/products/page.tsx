@@ -362,54 +362,56 @@ export default function ProductsPage() {
             </div>
           )}
 
-          {/* Products grid */}
-          {!selectedProduct && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProducts.map((product) => (
-                <Card
-                  key={product.id}
-                  variant="default"
-                  hoverEffect={true}
-                  onClick={() => setSelectedProduct(product.id)}
-                  className="cursor-pointer"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
-                      {product.name}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-                    <button
-                      className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800"
-                    >
-                      View Details
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          )}
+
+
+{/* Products grid */}
+{!selectedProduct && (
+  <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6 max-w-7xl mx-auto">
+    {filteredProducts.map((product) => (
+      <Card
+        key={product.id}
+        variant="default"
+        hoverEffect={true}
+        onClick={() => setSelectedProduct(product.id)}
+        className="cursor-pointer"
+      >
+        <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden">
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        
+        <div className="p-3 sm:p-4 md:p-6">
+          <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+            {product.name}
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-4 line-clamp-3">{product.description}</p>
+          <button
+            className="inline-flex items-center text-xs sm:text-sm font-medium text-blue-600 hover:text-blue-800"
+          >
+            View Details
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3 sm:h-4 sm:w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </Card>
+    ))}
+  </div>
+)}
 
           {/* Empty state */}
           {filteredProducts.length === 0 && (
